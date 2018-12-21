@@ -12,6 +12,7 @@
 		7A1FB98D21CC824F00F1809F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A1FB98B21CC824F00F1809F /* Main.storyboard */; };
 		7A1FB98F21CC825100F1809F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A1FB98E21CC825100F1809F /* Assets.xcassets */; };
 		7A1FB99221CC825100F1809F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A1FB99021CC825100F1809F /* LaunchScreen.storyboard */; };
+		7A1FB99A21CC826C00F1809F /* BBTurntableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1FB99921CC826C00F1809F /* BBTurntableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		7A1FB98E21CC825100F1809F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A1FB99121CC825100F1809F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7A1FB99321CC825100F1809F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A1FB99921CC826C00F1809F /* BBTurntableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBTurntableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				7A1FB98721CC824F00F1809F /* AppDelegate.swift */,
 				7A1FB98921CC824F00F1809F /* ViewController.swift */,
+				7A1FB99921CC826C00F1809F /* BBTurntableView.swift */,
 				7A1FB98B21CC824F00F1809F /* Main.storyboard */,
 				7A1FB98E21CC825100F1809F /* Assets.xcassets */,
 				7A1FB99021CC825100F1809F /* LaunchScreen.storyboard */,
@@ -135,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A1FB99A21CC826C00F1809F /* BBTurntableView.swift in Sources */,
 				7A1FB98A21CC824F00F1809F /* ViewController.swift in Sources */,
 				7A1FB98821CC824F00F1809F /* AppDelegate.swift in Sources */,
 			);
