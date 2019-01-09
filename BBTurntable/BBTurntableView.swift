@@ -54,7 +54,12 @@ class BBTurntableView: UIView {
             let sLayer = CAShapeLayer()
             sLayer.path = path.cgPath
             sLayer.fillColor = UIColor(red: CGFloat(arc4random() % 255) / 255.0, green: CGFloat(arc4random() % 255) / 255.0, blue: CGFloat(arc4random() % 255) / 255.0, alpha: 1.0).cgColor
-            sLayer.strokeColor = UIColor.blue.cgColor
+            if i%2 == 0 {
+                sLayer.fillColor = UIColor(red: 255.0/255.0, green: 157/255.0, blue: 45/255.0, alpha: 1).cgColor
+            }else{
+                sLayer.fillColor = UIColor(red: 255.0/255.0, green: 206/255.0, blue: 55/255.0, alpha: 1).cgColor
+            }
+            sLayer.strokeColor = UIColor.clear.cgColor
             self.bgView.layer.addSublayer(sLayer)
         }
     }
@@ -69,9 +74,10 @@ class BBTurntableView: UIView {
             titleLB.transform = CGAffineTransform(rotationAngle: ((CGFloat.pi * 2) / CGFloat(sectorNum)) * CGFloat(Double(i)+0.5))
             titleLB.backgroundColor = UIColor(red: CGFloat(arc4random() % 255) / 255.0, green: CGFloat(arc4random() % 255) / 255.0, blue: CGFloat(arc4random() % 255) / 255.0, alpha: 1.0)
             titleLB.backgroundColor = UIColor.clear
-            titleLB.text = "副教授积\(i)"
-            titleLB.font = UIFont.systemFont(ofSize: 13.0)
+            titleLB.text = "0.\(i) 元"
+            titleLB.font = UIFont.boldSystemFont(ofSize: 18.0)
             titleLB.minimumScaleFactor = 0.5
+            titleLB.attributedText = titleLB.text?.zx_shadowFormat(shadowRadius: 2.0, shadowColor: UIColor(red: 0/255.0, green: 156/255.0, blue: 244/255.0, alpha: 1), shadowOffSet: CGSize(width: 1.5, height: 0), foregroundColor: .white, strokeColor:  UIColor(red: 0/255.0, green: 156/255.0, blue: 244/255.0, alpha: 1), strokeWidth: 2.0, font: UIFont.boldSystemFont(ofSize: 20.0))
             self.bgView.addSubview(titleLB)
         }
     }
@@ -120,5 +126,40 @@ class BBTurntableView: UIView {
 extension BBTurntableView: CAAnimationDelegate {
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         
+    }
+}
+
+
+extension String {
+    /**
+     *@Para: 描边&阴影
+     *@shadowRadius: 阴影模糊度
+     *@shadowColor: 阴影颜色
+     *@shadowOffSet: 阴影偏移
+     *@foregroundColor: 前景色
+     *@strokeColor: 描边颜色
+     *@strokeWidth: 描边宽度
+     */
+    func zx_shadowFormat(shadowRadius shadRadius: CGFloat = 2.0,
+                         shadowColor shadColor: UIColor,
+                         shadowOffSet shadOffSet: CGSize = CGSize.zero,
+                         foregroundColor fogeColor: UIColor = UIColor.white,
+                         strokeColor stroColor: UIColor,
+                         strokeWidth stroWidth: CGFloat = 3.0,
+                         font tFont: UIFont) -> NSAttributedString {
+        let shadow = NSShadow()
+        shadow.shadowBlurRadius = shadRadius
+        shadow.shadowColor = shadColor
+        shadow.shadowOffset = shadOffSet
+        
+        let attrs:[NSAttributedString.Key : Any] = [NSAttributedString.Key.foregroundColor : fogeColor,
+                                                    NSAttributedString.Key.strokeColor : stroColor,
+                                                    NSAttributedString.Key.strokeWidth : -stroWidth,
+                                                    NSAttributedString.Key.font : tFont,
+                                                    NSAttributedString.Key.shadow: shadow
+        ]
+        
+        let attrStr = NSMutableAttributedString(string: self, attributes: attrs)
+        return attrStr
     }
 }
